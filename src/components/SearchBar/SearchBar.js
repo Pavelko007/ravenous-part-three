@@ -21,6 +21,10 @@ const SearchBar = () => {
     setTerm(event.target.value);
   }
 
+  const handleLocationChange = (event) => {
+    setLocation(event.target.value);
+  }
+
   const renderSortByOptions = () => {
     return Object.keys(sortByOptions).map((sortByOption) => {
       let sortByOptionValue = sortByOptions[sortByOption];
@@ -38,7 +42,7 @@ const SearchBar = () => {
       </div>
       <div className={styles.SearchBarFields}>
         <input placeholder="Search Businesses" onChange={handleTermChange} />
-        <input placeholder="Where?" />
+        <input placeholder="Where?" onChange={handleLocationChange}/>
       </div>
       <div className={styles.SearchBarSubmit}>
         <a>Let's Go</a>
