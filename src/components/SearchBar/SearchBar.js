@@ -25,6 +25,11 @@ const SearchBar = () => {
     setLocation(event.target.value);
   }
 
+  const handleSearch = (event) => {
+    event.preventDefault();
+    console.log(`Searching Yelp with ${term}, ${location}, ${sortBy}`);
+  }
+
   const renderSortByOptions = () => {
     return Object.keys(sortByOptions).map((sortByOption) => {
       let sortByOptionValue = sortByOptions[sortByOption];
@@ -44,7 +49,7 @@ const SearchBar = () => {
         <input placeholder="Search Businesses" onChange={handleTermChange} />
         <input placeholder="Where?" onChange={handleLocationChange}/>
       </div>
-      <div className={styles.SearchBarSubmit}>
+      <div className={styles.SearchBarSubmit} onClick={handleSearch}>
         <a>Let's Go</a>
       </div>
     </div>
